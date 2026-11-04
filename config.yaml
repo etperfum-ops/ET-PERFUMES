@@ -1,0 +1,26 @@
+backend:
+  name: git-gateway
+  branch: main # أو master حسب اسم الفرع الرئيسي عندك في GitHub
+
+media_folder: "pic" # المجلد اللي الصور الجديدة هتروح فيه
+public_folder: "pic"
+
+collections:
+  - name: "products"
+    label: "العطور (Products)"
+    files:
+      - file: "products.json"
+        label: "قائمة العطور"
+        name: "products_list"
+        fields:
+          - label: "العطور"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "اسم العطر (English)", name: "title", widget: "string" }
+              - { label: "القسم", name: "category", widget: "select", options: ["him", "her", "unisex"] }
+              - { label: "صورة العطر", name: "image", widget: "image" }
+              - { label: "سعر 30 مل", name: "price30", widget: "string", default: "170 EGP" }
+              - { label: "سعر 50 مل", name: "price50", widget: "string", default: "250 EGP" }
+              - { label: "الوصف (English)", name: "description", widget: "text" }
+              - { label: "تفاصيل/النوع (مثل EAU DE PARFUM)", name: "sub", widget: "string", default: "EAU DE PARFUM" }
